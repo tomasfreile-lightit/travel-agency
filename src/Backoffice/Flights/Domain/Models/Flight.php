@@ -39,25 +39,16 @@ use Lightit\Backoffice\Cities\Domain\Models\City;
  */
 class Flight extends Model
 {
-    /**
-     * @return BelongsTo
-     */
     public function originCity(): BelongsTo
     {
         return $this->belongsTo(City::class, 'origin_city_id');
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function destinationCity(): BelongsTo
     {
         return $this->belongsTo(City::class, 'destination_city_id');
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function airline(): BelongsTo
     {
         return $this->belongsTo(Airline::class);
