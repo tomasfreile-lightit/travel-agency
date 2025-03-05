@@ -1189,16 +1189,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.44.0",
+            "version": "v11.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e9a33da34815ac1ed46c7e4c477a775f4592f0a7"
+                "reference": "0883d4175f4e2b5c299e7087ad3c74f2ce195c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e9a33da34815ac1ed46c7e4c477a775f4592f0a7",
-                "reference": "e9a33da34815ac1ed46c7e4c477a775f4592f0a7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0883d4175f4e2b5c299e7087ad3c74f2ce195c6d",
+                "reference": "0883d4175f4e2b5c299e7087ad3c74f2ce195c6d",
                 "shasum": ""
             },
             "require": {
@@ -1306,7 +1306,7 @@
                 "league/flysystem-read-only": "^3.25.1",
                 "league/flysystem-sftp-v3": "^3.25.1",
                 "mockery/mockery": "^1.6.10",
-                "orchestra/testbench-core": "^9.9.4",
+                "orchestra/testbench-core": "^9.11.2",
                 "pda/pheanstalk": "^5.0.6",
                 "php-http/discovery": "^1.15",
                 "phpstan/phpstan": "^2.0",
@@ -1400,7 +1400,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-02-24T13:08:54+00:00"
+            "time": "2025-03-05T15:34:10+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -9830,16 +9830,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.6",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "6eaec7c6c9e90dcfe46ad1e1ffa5171e2dab641c"
+                "reference": "12567f91a74036d56ba0af6d56c8e73ac0e8d850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6eaec7c6c9e90dcfe46ad1e1ffa5171e2dab641c",
-                "reference": "6eaec7c6c9e90dcfe46ad1e1ffa5171e2dab641c",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/12567f91a74036d56ba0af6d56c8e73ac0e8d850",
+                "reference": "12567f91a74036d56ba0af6d56c8e73ac0e8d850",
                 "shasum": ""
             },
             "require": {
@@ -9884,7 +9884,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-19T15:46:42+00:00"
+            "time": "2025-03-05T13:43:55+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -10481,21 +10481,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.0.9",
+            "version": "2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "4393230e478c0006795770fe74c223b5c64ed68c"
+                "reference": "5844a718acb40f40afcd110394270afa55509fd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4393230e478c0006795770fe74c223b5c64ed68c",
-                "reference": "4393230e478c0006795770fe74c223b5c64ed68c",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/5844a718acb40f40afcd110394270afa55509fd0",
+                "reference": "5844a718acb40f40afcd110394270afa55509fd0",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.3"
+                "phpstan/phpstan": "^2.1.6"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -10528,7 +10528,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.0.9"
+                "source": "https://github.com/rectorphp/rector/tree/2.0.10"
             },
             "funding": [
                 {
@@ -10536,7 +10536,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-10T08:14:01+00:00"
+            "time": "2025-03-03T17:35:18+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -12366,16 +12366,16 @@
         },
         {
             "name": "spaze/phpstan-disallowed-calls",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spaze/phpstan-disallowed-calls.git",
-                "reference": "d146959a0f44ab84bcd213e5c85d5e9640432efb"
+                "reference": "b24661b61262abdac1b35d8f4f88d7e3ffb38d1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/d146959a0f44ab84bcd213e5c85d5e9640432efb",
-                "reference": "d146959a0f44ab84bcd213e5c85d5e9640432efb",
+                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/b24661b61262abdac1b35d8f4f88d7e3ffb38d1e",
+                "reference": "b24661b61262abdac1b35d8f4f88d7e3ffb38d1e",
                 "shasum": ""
             },
             "require": {
@@ -12384,12 +12384,12 @@
             },
             "require-dev": {
                 "nette/neon": "^3.3.1",
-                "nikic/php-parser": "^4.13 || ^5.0",
+                "nikic/php-parser": "^4.13.2 || ^5.0",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/phpstan-deprecation-rules": "^1.2 || ^2.0",
                 "phpunit/phpunit": "^8.5.14 || ^10.1 || ^11.0 || ^12.0",
-                "spaze/coding-standard": "^1.7"
+                "spaze/coding-standard": "^1.8"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -12421,7 +12421,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spaze/phpstan-disallowed-calls/issues",
-                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.4.0"
+                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.4.1"
             },
             "funding": [
                 {
@@ -12429,7 +12429,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-22T03:49:57+00:00"
+            "time": "2025-03-03T21:14:21+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -13075,38 +13075,38 @@
         },
         {
             "name": "worksome/coding-style",
-            "version": "v3.1.1",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/worksome/coding-style.git",
-                "reference": "e15b6253915f7faec590f6db64157787e89af206"
+                "reference": "32cec2d681784ebbba8b12c6dedc57106da5d9f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/worksome/coding-style/zipball/e15b6253915f7faec590f6db64157787e89af206",
-                "reference": "e15b6253915f7faec590f6db64157787e89af206",
+                "url": "https://api.github.com/repos/worksome/coding-style/zipball/32cec2d681784ebbba8b12c6dedc57106da5d9f6",
+                "reference": "32cec2d681784ebbba8b12c6dedc57106da5d9f6",
                 "shasum": ""
             },
             "require": {
                 "canvural/larastan-strict-rules": "^3.0",
                 "composer-plugin-api": "^2.0",
-                "larastan/larastan": "^3.0",
+                "larastan/larastan": "^3.1",
                 "php": "^8.2",
-                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
                 "phpstan/phpstan-mockery": "^2.0",
                 "rector/rector": "^2.0",
-                "slevomat/coding-standard": "^8.15",
-                "spaze/phpstan-disallowed-calls": "^4.0.1",
-                "symplify/easy-coding-standard": "^12.4"
+                "slevomat/coding-standard": "^8.16",
+                "spaze/phpstan-disallowed-calls": "^4.4",
+                "symplify/easy-coding-standard": "^12.5"
             },
             "require-dev": {
-                "composer/composer": "^2.7",
-                "friendsofphp/php-cs-fixer": "^3.53",
-                "orchestra/testbench": "^9.5",
-                "pestphp/pest": "^3.0",
+                "composer/composer": "^2.8",
+                "friendsofphp/php-cs-fixer": "^3.70",
+                "orchestra/testbench": "^9.11",
+                "pestphp/pest": "^3.7",
                 "spatie/invade": "^1.1.1",
-                "squizlabs/php_codesniffer": "^3.8"
+                "squizlabs/php_codesniffer": "^3.11"
             },
             "type": "composer-plugin",
             "extra": {
@@ -13138,9 +13138,9 @@
             "description": "Worksomes coding style",
             "support": {
                 "issues": "https://github.com/worksome/coding-style/issues",
-                "source": "https://github.com/worksome/coding-style/tree/v3.1.1"
+                "source": "https://github.com/worksome/coding-style/tree/v3.2.0"
             },
-            "time": "2025-01-06T12:01:14+00:00"
+            "time": "2025-03-05T09:38:30+00:00"
         },
         {
             "name": "worksome/request-factories",
@@ -13218,12 +13218,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.4"
     },
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
