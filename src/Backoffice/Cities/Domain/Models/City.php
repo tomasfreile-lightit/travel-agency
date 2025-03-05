@@ -32,6 +32,9 @@ class City extends Model
 {
     protected $fillable = ['name'];
 
+    /**
+     * @return BelongsToMany
+     */
     public function airlines(): BelongsToMany
     {
         return $this->belongsToMany(Airline::class);
