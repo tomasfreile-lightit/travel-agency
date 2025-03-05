@@ -39,11 +39,17 @@ class Airline extends Model
         'description',
     ];
 
+    /**
+     * @return BelongsToMany<City, $this>
+     */
     public function cities(): BelongsToMany
     {
         return $this->belongsToMany(City::class);
     }
 
+    /**
+     * @return HasMany<Flight, $this>
+     */
     public function flights(): HasMany
     {
         return $this->hasMany(Flight::class);
