@@ -15,9 +15,12 @@ final readonly class ListCitiesAction
      */
     public function execute(int $pageSize = 10): LengthAwarePaginator
     {
-        return QueryBuilder::for(City::class)
+        /** @var LengthAwarePaginator<City> $cities */
+        $cities = QueryBuilder::for(City::class)
             ->allowedFilters(['name'])
             ->allowedSorts(['name'])
             ->paginate($pageSize);
+
+        return $cities;
     }
 }

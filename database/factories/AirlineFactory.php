@@ -11,7 +11,7 @@ use Lightit\Backoffice\Airlines\Domain\Models\Airline;
 use Lightit\Backoffice\Cities\Domain\Models\City;
 
 /**
- * @extends Factory<City>
+ * @extends Factory<Airline>
  */
 class AirlineFactory extends Factory
 {

@@ -6,6 +6,7 @@ namespace Lightit\Backoffice\Airlines\Domain\Actions;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Lightit\Backoffice\Airlines\Domain\Models\Airline;
+use Lightit\Backoffice\Cities\Domain\Models\City;
 use Spatie\QueryBuilder\QueryBuilder;
 
 final readonly class ListAirlineAction
@@ -15,9 +16,13 @@ final readonly class ListAirlineAction
      */
     public function execute(int $pageSize = 10): LengthAwarePaginator
     {
-        return QueryBuilder::for(Airline::class)
+        /** @var LengthAwarePaginator<Airline> $airlines */
+
+        $airlines = QueryBuilder::for(Airline::class)
             ->allowedFilters(['name', 'description'])
             ->allowedSorts(['name', 'description'])
             ->paginate($pageSize);
+
+        return $airlines;
     }
 }
