@@ -10,6 +10,9 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 final readonly class ListCitiesAction
 {
+    /**
+     * @return LengthAwarePaginator<City>
+     */
     public function execute(int $pageSize = 10): LengthAwarePaginator
     {
         return QueryBuilder::for(City::class)

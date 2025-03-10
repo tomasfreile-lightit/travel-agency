@@ -10,6 +10,9 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 final readonly class ListAirlineAction
 {
+    /**
+     * @return LengthAwarePaginator<Airline>
+     */
     public function execute(int $pageSize = 10): LengthAwarePaginator
     {
         return QueryBuilder::for(Airline::class)
