@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Lightit\Backoffice\Users\App\Controllers\{
     DeleteUserController, GetUserController, ListUserController, StoreUserController
 };
+use Lightit\Backoffice\Airlines\App\Controllers\ListAirlineController;
+use Lightit\Backoffice\Airlines\App\Controllers\StoreAirlineController;
 use Lightit\Backoffice\Cities\App\Controllers\DeleteCityController;
 use Lightit\Backoffice\Cities\App\Controllers\GetCityController;
 use Lightit\Backoffice\Cities\App\Controllers\ListCitiesController;
@@ -78,12 +80,12 @@ Route::prefix('cities')
 | Airlines Routes
 |--------------------------------------------------------------------------
 */
-//Route::prefix('airlines')
-//    ->middleware([])
-//    ->group(static function () {
-//        Route::get('/', ListAirlineController::class);
+Route::prefix('airlines')
+    ->middleware([])
+    ->group(static function () {
+        Route::get('/', ListAirlineController::class);
 //        Route::get('/{airline}', GetAirlineController::class)->withTrashed();
-//        Route::post('/', StoreAirlineController::class);
+        Route::post('/', StoreAirlineController::class);
 //        Route::put('/{airline}', UpdateAirlineController::class);
 //        Route::delete('/{airline}', DeleteAirlineController::class);
-//    });
+    });

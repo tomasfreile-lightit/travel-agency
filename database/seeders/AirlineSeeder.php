@@ -14,11 +14,6 @@ class AirlineSeeder extends Seeder
 {
     public function run(): void
     {
-        $cities = CityFactory::new()->count(15)->create();
-        $airlines = AirlineFactory::new()->count(5)->create();
-
-        foreach ($airlines as $airline) {
-            $airline->cities()->attach($cities->random(2));
-        }
+        AirlineFactory::new()->count(5)->create();
     }
 }

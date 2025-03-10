@@ -37,10 +37,7 @@ use Lightit\Backoffice\Flights\Domain\Models\Flight;
  */
 final class Airline extends Model
 {
-    protected $fillable = [
-        'name',
-        'description',
-    ];
+    protected $guarded = ['id'];
 
     /**
      * @return BelongsToMany<City, $this>
