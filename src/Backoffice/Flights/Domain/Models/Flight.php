@@ -37,7 +37,7 @@ use Lightit\Backoffice\Cities\Domain\Models\City;
  *
  * @mixin \Eloquent
  */
-class Flight extends Model
+final class Flight extends Model
 {
     /**
      * @return BelongsTo<City, $this>

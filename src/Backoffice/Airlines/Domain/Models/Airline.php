@@ -30,9 +30,12 @@ use Lightit\Backoffice\Flights\Domain\Models\Flight;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Airline whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Airline whereUpdatedAt($value)
  *
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Flight> $flights
+ * @property-read int|null $flights_count
+ *
  * @mixin \Eloquent
  */
-class Airline extends Model
+final class Airline extends Model
 {
     protected $fillable = [
         'name',

@@ -28,7 +28,7 @@ use Lightit\Backoffice\Airlines\Domain\Models\Airline;
  *
  * @mixin \Eloquent
  */
-class City extends Model
+final class City extends Model
 {
     protected $fillable = ['name'];
 
