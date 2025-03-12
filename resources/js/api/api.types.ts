@@ -22,3 +22,25 @@ export interface ServiceResponse<T> {
   status: number;
   success: boolean;
 }
+
+export const SORT_DIRECTIONS = {
+  ASC: "asc",
+  DESC: "desc",
+} as const;
+
+export type SortDirection =
+  (typeof SORT_DIRECTIONS)[keyof typeof SORT_DIRECTIONS];
+
+export interface PaginationParams {
+  page: number;
+  perPage?: number;
+}
+
+export interface SearchParams {
+  search?: string;
+}
+
+export interface SortingParams {
+  orderBy: string | null;
+  sortDirection: SortDirection | null;
+}

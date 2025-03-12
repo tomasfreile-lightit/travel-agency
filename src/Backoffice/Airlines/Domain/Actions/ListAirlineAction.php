@@ -6,7 +6,6 @@ namespace Lightit\Backoffice\Airlines\Domain\Actions;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Lightit\Backoffice\Airlines\Domain\Models\Airline;
-use Lightit\Backoffice\Cities\Domain\Models\City;
 use Spatie\QueryBuilder\QueryBuilder;
 
 final readonly class ListAirlineAction
