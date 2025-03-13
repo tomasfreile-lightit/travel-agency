@@ -8,7 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Lightit\Backoffice\Airlines\Domain\Models\Airline;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final readonly class ListAirlineAction
+final readonly class ListAirlinesAction
 {
     /**
      * @return LengthAwarePaginator<Airline>
@@ -18,7 +18,7 @@ final readonly class ListAirlineAction
         /** @var LengthAwarePaginator<Airline> $airlines */
 
         $airlines = QueryBuilder::for(Airline::class)
-            ->allowedFilters(['name', 'description'])
+            ->allowedFilters(['name'])
             ->allowedSorts(['name', 'description'])
             ->paginate($pageSize);
 

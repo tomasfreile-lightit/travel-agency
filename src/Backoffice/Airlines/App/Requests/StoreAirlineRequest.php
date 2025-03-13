@@ -14,11 +14,15 @@ final class StoreAirlineRequest extends FormRequest
 
     public const DESCRIPTION = 'description';
 
+    public const CITIES = 'cities';
+
     public function rules(): array
     {
         return [
             self::NAME => ['required', 'string', 'max:255', Rule::unique('airlines')],
             self::DESCRIPTION => ['required', 'string', 'max:255'],
+            self::CITIES => ['required', 'array'],
+            self::CITIES . '.*' => ['integer', 'exists:cities,id'],
         ];
     }
 
@@ -27,6 +31,7 @@ final class StoreAirlineRequest extends FormRequest
         return new CreateAirlineDTO(
             $this->string(self::NAME)->toString(),
             $this->string(self::DESCRIPTION)->toString(),
+            $this->input(self::CITIES, []),
         );
     }
 }

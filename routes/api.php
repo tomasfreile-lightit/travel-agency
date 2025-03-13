@@ -5,13 +5,12 @@ use Illuminate\Support\Facades\Route;
 use Lightit\Backoffice\Users\App\Controllers\{
     DeleteUserController, GetUserController, ListUserController, StoreUserController
 };
-use Lightit\Backoffice\Airlines\App\Controllers\ListAirlineController;
-use Lightit\Backoffice\Airlines\App\Controllers\StoreAirlineController;
-use Lightit\Backoffice\Cities\App\Controllers\DeleteCityController;
-use Lightit\Backoffice\Cities\App\Controllers\GetCityController;
-use Lightit\Backoffice\Cities\App\Controllers\ListCitiesController;
-use Lightit\Backoffice\Cities\App\Controllers\StoreCityController;
-use Lightit\Backoffice\Cities\App\Controllers\UpdateCityController;
+use Lightit\Backoffice\Airlines\App\Controllers\{
+    DeleteAirlineController, GetAirlineController, ListAirlineController, StoreAirlineController, UpdateAirlineController
+};
+use Lightit\Backoffice\Cities\App\Controllers\{
+    DeleteCityController, GetCityController, ListCitiesController, StoreCityController, UpdateCityController
+};
 
 
 /*
@@ -62,7 +61,7 @@ Route::prefix('users')
 
 /*
 |--------------------------------------------------------------------------
-| Cities Routes
+| Airlines Routes
 |--------------------------------------------------------------------------
 */
 Route::prefix('cities')
@@ -84,8 +83,8 @@ Route::prefix('airlines')
     ->middleware([])
     ->group(static function () {
         Route::get('/', ListAirlineController::class);
-//        Route::get('/{airline}', GetAirlineController::class)->withTrashed();
+        Route::get('/{airline}', GetAirlineController::class)->withTrashed();
         Route::post('/', StoreAirlineController::class);
-//        Route::put('/{airline}', UpdateAirlineController::class);
-//        Route::delete('/{airline}', DeleteAirlineController::class);
+        Route::put('/{airline}', UpdateAirlineController::class);
+        Route::delete('/{airline}', DeleteAirlineController::class);
     });

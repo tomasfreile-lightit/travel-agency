@@ -6,6 +6,10 @@ export interface City {
   name: string;
 }
 
+export interface CityCreate {
+  name: string;
+}
+
 export const getCities = async ({ page = 1 }: PaginationParams) => {
   const params = {
     page,
@@ -16,4 +20,17 @@ export const getCities = async ({ page = 1 }: PaginationParams) => {
   });
 
   return response.data;
+};
+
+export const createCity = (data: CityCreate) => {
+  return api.post("/cities", data);
+};
+
+export const editCity = (data: City) => {
+  const { id, name } = data;
+  return api.put(`/cities/${id}`, { name });
+};
+
+export const deleteCity = (id: number) => {
+  return api.delete(`/cities/${id}`);
 };

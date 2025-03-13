@@ -14,6 +14,8 @@ final class CityTransformer extends Transformer
         return [
             'id' => $city->id,
             'name' => $city->name,
+            'incoming_flights' => $city->incomingFlights()->count(),
+            'outgoing_flights' => $city->outgoingFlights()->count(),
         ];
     }
 }

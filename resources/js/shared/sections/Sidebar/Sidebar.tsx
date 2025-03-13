@@ -8,7 +8,6 @@ export const Sidebar = () => {
   const location = useLocation();
   const current = location.pathname;
   const navigation = [
-    { name: "Home", href: ROUTES.home },
     { name: "Cities", href: ROUTES.cities },
     { name: "Airlines", href: ROUTES.airlines },
     { name: "Flights", href: ROUTES.flights },

@@ -11,9 +11,13 @@ final readonly class StoreAirlineAction
 {
     public function execute(CreateAirlineDTO $data): Airline
     {
-        return Airline::create([
+        $airline = Airline::create([
             'name' => $data->name,
             'description' => $data->description,
         ]);
+
+        $airline->cities()->attach($data->cities);
+
+        return $airline->load('cities');
     }
 }

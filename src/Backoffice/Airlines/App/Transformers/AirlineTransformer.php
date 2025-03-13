@@ -15,6 +15,8 @@ final class AirlineTransformer extends Transformer
             'id' => $airline->id,
             'name' => $airline->name,
             'description' => $airline->description,
+            'number_of_flights' => $airline->flights()->count(),
+            'cities' => $airline->cities()->pluck('name'),
         ];
     }
 }

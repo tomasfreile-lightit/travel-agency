@@ -16,6 +16,10 @@ final readonly class UpdateAirlineAction
             'description' => $data->description,
         ]);
 
-        return $airline;
+        if (! empty($data->cities)) {
+            $airline->cities()->sync($data->cities);
+        }
+
+        return $airline->fresh();
     }
 }

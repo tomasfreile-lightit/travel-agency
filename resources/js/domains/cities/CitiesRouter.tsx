@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 
-import { RouterWrapper } from "~/router/components/RouterWrapper/RouterWrapper";
-import { Cities } from "./screens/Cities";
+import { Cities } from "~/domains/cities/screens/Cities.tsx";
+import { RouterWrapper } from "~/router/components/RouterWrapper/RouterWrapper.tsx";
 
 export const CitiesRouter = () => {
   return (
@@ -10,5 +10,3 @@ export const CitiesRouter = () => {
     </RouterWrapper>
   );
 };
-
-export default CitiesRouter;
