@@ -1,31 +1,65 @@
-import { City } from "~/api/cities";
-import { CityForm } from "~/domains/cities/components/CityForm.tsx";
-import { useCity } from "~/domains/cities/hooks";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-interface EditCityProps {
+import { City } from "~/api/cities";
+import { useCity } from "~/domains/cities/hooks";
+import {
+  CityFormValues,
+  citySchema,
+} from "~/domains/cities/schemas/citySchema.ts";
+import { Input, Label, Message } from "~/ui";
+
+interface CityEditProps {
   city: City;
-  onSuccess?: () => void;
+  onSuccess: () => void;
 }
 
-export const CityEdit = ({ city, onSuccess }: EditCityProps) => {
-  const { mutate, isPending } = useCity().editCity();
+export const CityEdit = ({ city, onSuccess }: CityEditProps) => {
+  const { mutate: updateCity } = useCity().editCity();
 
-  const handleSubmit = (data: { name: string }) => {
-    mutate(
-      { id: city.id, name: data.name },
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CityFormValues>({
+    resolver: zodResolver(citySchema),
+    defaultValues: {
+      name: city.name,
+    },
+  });
+
+  const onSubmit: SubmitHandler<CityFormValues> = (data) => {
+    updateCity(
+      { id: city.id, ...data },
       {
         onSuccess: () => {
-          onSuccess?.();
+          onSuccess();
         },
       },
     );
   };
 
   return (
-    <CityForm
-      onSubmit={handleSubmit}
-      initialValues={{ name: city.name }}
-      isPending={isPending}
-    />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div>
+        <Label label="City Name" htmlFor="name" />
+        <Input
+          id="name"
+          {...register("name")}
+          error={errors.name?.message}
+          placeholder="Enter city name"
+        />
+        {errors.name && <Message error={errors.name.message} />}
+      </div>
+
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        >
+          Update City
+        </button>
+      </div>
+    </form>
   );
 };
