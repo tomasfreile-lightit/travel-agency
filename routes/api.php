@@ -11,6 +11,10 @@ use Lightit\Backoffice\Airlines\App\Controllers\{
 use Lightit\Backoffice\Cities\App\Controllers\{
     DeleteCityController, GetCityController, ListCitiesController, StoreCityController, UpdateCityController
 };
+use Lightit\Backoffice\Flights\App\Controllers\DeleteFlightController;
+use Lightit\Backoffice\Flights\App\Controllers\GetFlightController;
+use Lightit\Backoffice\Flights\App\Controllers\ListFlightsController;
+use Lightit\Backoffice\Flights\App\Controllers\StoreFlightController;
 
 
 /*
@@ -37,7 +41,7 @@ Route::prefix('users')
     ->middleware([])
     ->group(static function () {
         Route::get('/', ListUserController::class);
-        Route::get('/{user}', GetUserController::class)->withTrashed();
+        Route::get('/{user}', GetUserController::class);
         Route::post('/', StoreUserController::class);
         Route::delete('/{user}', DeleteUserController::class);
     });
@@ -48,16 +52,18 @@ Route::prefix('users')
 | Flights Routes
 |--------------------------------------------------------------------------
 */
-//Route::prefix('flights')
-//    ->middleware([])
-//    ->group(static function () {
-//        Route::get('/', ListFlightController::class);
-//        Route::get('/{flight}', GetFlightController::class)->withTrashed();
-//        Route::post('/', StoreFlightController::class);
-//        Route::put('/{flight}', UpdateFlightController::class);
-//        Route::delete('/{flight}', DeleteFlightController::class);
-//    });
-//
+Route::prefix('flights')
+    ->middleware([])
+    ->group(static function () {
+        Route::get('/', ListFlightsController::class);
+        Route::post('/', StoreFlightController::class);
+        Route::prefix('{flight}')
+            ->group(static function () {
+                Route::get('/', GetFlightController::class);
+                Route::delete('/', DeleteFlightController::class);
+            });
+    });
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,10 +74,13 @@ Route::prefix('cities')
     ->middleware([])
     ->group(static function () {
         Route::get('/', ListCitiesController::class);
-        Route::get('/{city}', GetCityController::class)->withTrashed();
         Route::post('/', StoreCityController::class);
-        Route::put('/{city}', UpdateCityController::class);
-        Route::delete('/{city}', DeleteCityController::class);
+        Route::prefix('{city}')
+            ->group(static function () {
+                Route::get('/', GetCityController::class);
+                Route::put('/', UpdateCityController::class);
+                Route::delete('/', DeleteCityController::class);
+            });
     });
 
 /*
@@ -83,8 +92,11 @@ Route::prefix('airlines')
     ->middleware([])
     ->group(static function () {
         Route::get('/', ListAirlineController::class);
-        Route::get('/{airline}', GetAirlineController::class)->withTrashed();
         Route::post('/', StoreAirlineController::class);
-        Route::put('/{airline}', UpdateAirlineController::class);
-        Route::delete('/{airline}', DeleteAirlineController::class);
+        Route::prefix('{airline}')
+            ->group(static function () {
+                Route::get('/', GetAirlineController::class);
+                Route::put('/', UpdateAirlineController::class);
+                Route::delete('/', DeleteAirlineController::class);
+            });
     });

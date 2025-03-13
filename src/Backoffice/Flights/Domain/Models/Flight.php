@@ -39,6 +39,8 @@ use Lightit\Backoffice\Cities\Domain\Models\City;
  */
 final class Flight extends Model
 {
+    protected $guarded = ['id'];
+
     /**
      * @return BelongsTo<City, $this>
      */

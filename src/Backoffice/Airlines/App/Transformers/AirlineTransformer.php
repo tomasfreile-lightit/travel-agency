@@ -6,9 +6,14 @@ namespace Lightit\Backoffice\Airlines\App\Transformers;
 
 use Flugg\Responder\Transformers\Transformer;
 use Lightit\Backoffice\Airlines\Domain\Models\Airline;
+use Lightit\Backoffice\Cities\App\Transformers\CityTransformer;
 
 final class AirlineTransformer extends Transformer
 {
+    protected $relations = [
+        'cities' => CityTransformer::class,
+    ];
+
     public function transform(Airline $airline): array
     {
         return [
@@ -16,7 +21,6 @@ final class AirlineTransformer extends Transformer
             'name' => $airline->name,
             'description' => $airline->description,
             'number_of_flights' => $airline->flights()->count(),
-            'cities' => $airline->cities()->pluck('name'),
         ];
     }
 }
