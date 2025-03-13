@@ -31,7 +31,7 @@ final class StoreAirlineRequest extends FormRequest
         return new CreateAirlineDTO(
             $this->string(self::NAME)->toString(),
             $this->string(self::DESCRIPTION)->toString(),
-            $this->input(self::CITIES, []),
+            $this->array(self::CITIES),
         );
     }
 }

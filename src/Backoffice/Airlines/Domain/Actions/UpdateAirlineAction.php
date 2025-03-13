@@ -20,6 +20,6 @@ final readonly class UpdateAirlineAction
             $airline->cities()->sync($data->cities);
         }
 
-        return $airline->fresh();
+        return $airline->refresh();
     }
 }
