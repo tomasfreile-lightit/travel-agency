@@ -6,6 +6,8 @@ import { addFilterParams } from "~/shared/utils/addFilterParams.ts";
 export interface City {
   id: number;
   name: string;
+  incoming_flights: number;
+  outgoing_flights: number;
 }
 
 export const getCities = async ({
@@ -33,9 +35,8 @@ export const createCity = (data: CityFormValues) => {
   return api.post("/cities", data);
 };
 
-export const editCity = (data: City) => {
-  const { id, name } = data;
-  return api.put(`/cities/${id}`, { name });
+export const editCity = (id: number, data: CityFormValues) => {
+  return api.put(`/cities/${id}`, data);
 };
 
 export const deleteCity = (id: number) => {

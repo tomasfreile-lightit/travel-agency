@@ -31,7 +31,7 @@ export const AirlineEditModal = ({
   const { mutate: updateAirline } = useAirline().updateAirline();
   const [citySearchQuery, setCitySearchQuery] = useState("");
   const [selectedCities, setSelectedCities] = useState<number[]>(
-    airline.cities,
+    airline.cities.map((city) => city.id),
   );
 
   const {
@@ -45,7 +45,7 @@ export const AirlineEditModal = ({
     defaultValues: {
       name: airline.name,
       description: airline.description,
-      cities: airline.cities,
+      cities: airline.cities.map((city) => city.id),
     },
   });
 
@@ -58,9 +58,9 @@ export const AirlineEditModal = ({
     reset({
       name: airline.name,
       description: airline.description,
-      cities: airline.cities,
+      cities: airline.cities.map((city) => city.id),
     });
-    setSelectedCities(airline.cities);
+    setSelectedCities(airline.cities.map((city) => city.id));
   }, [airline, reset]);
 
   const handleCitySearch = (query: string) => {

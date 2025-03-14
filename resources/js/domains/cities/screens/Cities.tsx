@@ -21,6 +21,8 @@ export const Cities = () => {
   const columns = [
     { id: "id", label: "ID" },
     { id: "name", label: "Name" },
+    { id: "incoming_flights", label: "Incoming Flights" },
+    { id: "outgoing_flights", label: "Outgoing Flights" },
     {
       id: "actions",
       label: "Actions",

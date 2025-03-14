@@ -1,12 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import {
-  City,
-  createCity,
-  deleteCity,
-  editCity,
-  getCities,
-} from "~/api/cities.ts";
+import { createCity, deleteCity, editCity, getCities } from "~/api/cities.ts";
 import { CityFormValues } from "~/domains/cities/schemas/citySchema.ts";
 import { errorToast, useToastStore } from "~/ui";
 
@@ -56,7 +50,8 @@ export const useCity = () => {
 
   const useEditCity = () => {
     return useMutation({
-      mutationFn: (data: City) => editCity(data),
+      mutationFn: ({ id, data }: { id: number; data: CityFormValues }) =>
+        editCity(id, data),
       onSuccess: async () => {
         await queryClient.invalidateQueries({
           queryKey: ["getCities"],

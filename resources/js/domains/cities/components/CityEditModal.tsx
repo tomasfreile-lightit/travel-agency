@@ -33,7 +33,7 @@ export const CityEditModal = ({
 
   const onSubmit: SubmitHandler<CityFormValues> = (data) => {
     updateCity(
-      { id: city.id, ...data },
+      { id: city.id, data },
       {
         onSuccess: () => {
           onClose();
