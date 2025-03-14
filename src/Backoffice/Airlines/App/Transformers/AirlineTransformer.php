@@ -10,7 +10,7 @@ use Lightit\Backoffice\Cities\App\Transformers\CityTransformer;
 
 final class AirlineTransformer extends Transformer
 {
-    protected $relations = [
+    protected $load = [
         'cities' => CityTransformer::class,
     ];
 

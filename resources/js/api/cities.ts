@@ -1,13 +1,10 @@
 import { PaginationParams, ServiceResponse } from "~/api/api.types.ts";
 import { api } from "~/api/axios.ts";
-import { addFilterParams } from "~/utils/addFilterParams.ts";
+import { CityFormValues } from "~/domains/cities/schemas/citySchema.ts";
+import { addFilterParams } from "~/shared/utils/addFilterParams.ts";
 
 export interface City {
   id: number;
-  name: string;
-}
-
-export interface CityCreate {
   name: string;
 }
 
@@ -32,7 +29,7 @@ export const getCities = async ({
   return response.data;
 };
 
-export const createCity = (data: CityCreate) => {
+export const createCity = (data: CityFormValues) => {
   return api.post("/cities", data);
 };
 

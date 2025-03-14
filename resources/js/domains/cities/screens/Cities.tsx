@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 import { City } from "~/api/cities";
-import { CityCreate } from "~/domains/cities/components/CityCreate.tsx";
-import { CityEdit } from "~/domains/cities/components/CityEdit.tsx";
+import { CityCreateModal } from "~/domains/cities/components/CityCreateModal.tsx";
+import { CityEditModal } from "~/domains/cities/components/CityEditModal.tsx";
 import { useCity } from "~/domains/cities/hooks";
-import { Modal } from "~/ui";
 import { PaginatedTable } from "~/ui/table";
 
 export const Cities = () => {
@@ -55,15 +54,6 @@ export const Cities = () => {
     deleteCity(id);
   };
 
-  const handleCreateModalClose = () => {
-    setIsCreateModalOpen(false);
-  };
-
-  const handleEditModalClose = () => {
-    setIsEditModalOpen(false);
-    setSelectedCity(null);
-  };
-
   if (isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
@@ -94,22 +84,20 @@ export const Cities = () => {
         setCurrentPage={setCurrentPage}
       />
 
-      <Modal
-        show={isCreateModalOpen}
-        title="Add City"
-        onClose={handleCreateModalClose}
-      >
-        <CityCreate onSuccess={handleCreateModalClose} />
-      </Modal>
+      <CityCreateModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+      />
 
       {selectedCity && (
-        <Modal
-          show={isEditModalOpen}
-          title="Edit City"
-          onClose={handleEditModalClose}
-        >
-          <CityEdit city={selectedCity} onSuccess={handleEditModalClose} />
-        </Modal>
+        <CityEditModal
+          isOpen={isEditModalOpen}
+          onClose={() => {
+            setIsEditModalOpen(false);
+            setSelectedCity(null);
+          }}
+          city={selectedCity}
+        />
       )}
     </div>
   );
