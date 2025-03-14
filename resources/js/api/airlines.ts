@@ -1,5 +1,6 @@
 import { PaginationParams, ServiceResponse } from "~/api/api.types.ts";
 import { api } from "~/api/axios.ts";
+import { City } from "~/api/cities.ts";
 import { AirlineFormValues } from "~/domains/airlines/schemas/airlineSchema.ts";
 
 export interface Airline {
@@ -7,7 +8,7 @@ export interface Airline {
   name: string;
   description: string;
   number_of_flights: number;
-  cities: number[];
+  cities: City[];
 }
 
 export const getAirlines = async ({ page = 1 }: PaginationParams) => {
