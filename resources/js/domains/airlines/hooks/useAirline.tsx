@@ -14,16 +14,17 @@ export const useAirline = () => {
 
   const { pushToast } = useToastStore();
 
-  const useGetAirlines = (currentPage: number, pageSize: number) => {
+  const useGetAirlines = (currentPage?: number, pageSize?: number) => {
     return useQuery({
       queryFn: () =>
         getAirlines({
           page: currentPage,
+          perPage: pageSize,
         }),
       queryKey: [
         "getAirlines",
         {
-          page: currentPage,
+          currentPage,
           pageSize,
         },
       ],

@@ -11,7 +11,7 @@ export interface Airline {
   cities: City[];
 }
 
-export const getAirlines = async ({ page = 1 }: PaginationParams) => {
+export const getAirlines = async ({ page = 1 }: Partial<PaginationParams>) => {
   const params = {
     page,
   };

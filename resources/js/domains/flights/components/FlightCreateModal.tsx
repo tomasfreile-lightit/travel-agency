@@ -20,7 +20,7 @@ export const FlightCreateModal = ({
   onClose,
 }: FlightCreateModalProps) => {
   const { mutate: createFlight } = useFlight().createFlight();
-  const { data: airlinesResponse } = useAirline().getAirlines(1, 100);
+  const { data: airlinesResponse } = useAirline().getAirlines();
   const [availableCities, setAvailableCities] = useState<any[]>([]);
 
   const {
@@ -44,7 +44,6 @@ export const FlightCreateModal = ({
 
       if (selectedAirline?.cities) {
         setAvailableCities(selectedAirline.cities);
-        // Reset city selections when airline changes
         setValue("originCityId", 0);
         setValue("destinationCityId", 0);
       }
@@ -80,9 +79,7 @@ export const FlightCreateModal = ({
               </option>
             ))}
           </select>
-          {errors.airlineId && (
-            <Message error>{errors.airlineId.message}</Message>
-          )}
+          {errors.airlineId && <Message error={errors.airlineId?.message} />}
         </div>
 
         <div>
@@ -103,7 +100,7 @@ export const FlightCreateModal = ({
             ))}
           </select>
           {errors.originCityId && (
-            <Message error>{errors.originCityId.message}</Message>
+            <Message error={errors.originCityId.message} />
           )}
         </div>
 
@@ -125,7 +122,7 @@ export const FlightCreateModal = ({
             ))}
           </select>
           {errors.destinationCityId && (
-            <Message error>{errors.destinationCityId.message}</Message>
+            <Message error={errors.destinationCityId?.message} />
           )}
         </div>
 

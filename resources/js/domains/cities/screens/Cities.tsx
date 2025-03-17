@@ -4,6 +4,8 @@ import { City } from "~/api/cities";
 import { CityCreateModal } from "~/domains/cities/components/CityCreateModal.tsx";
 import { CityEditModal } from "~/domains/cities/components/CityEditModal.tsx";
 import { useCity } from "~/domains/cities/hooks";
+import { useDebounce } from "~/shared/hooks/useDebounce.ts";
+import { Input } from "~/ui";
 import { PaginatedTable } from "~/ui/table";
 
 export const Cities = () => {
@@ -13,7 +15,11 @@ export const Cities = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const debounceSearchQuery = useDebounce(searchQuery);
+
   const { data: citiesResponse, isLoading } = useCity().getCities(
+    debounceSearchQuery,
     currentPage,
     pageSize,
   );
@@ -77,6 +83,21 @@ export const Cities = () => {
         >
           Add City
         </button>
+      </div>
+
+      <div className="mb-4">
+        <Input
+          id="city-search"
+          label="Search Cities"
+          placeholder="Type city name..."
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+            setCurrentPage(1);
+          }}
+          className="bg-gray-100 text-black"
+          autoFocus
+        />
       </div>
 
       <PaginatedTable

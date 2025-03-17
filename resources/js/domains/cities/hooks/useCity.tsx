@@ -10,23 +10,23 @@ export const useCity = () => {
   const { pushToast } = useToastStore();
 
   const useGetCities = (
-    currentPage: number,
-    pageSize: number,
     searchQuery?: string,
+    currentPage?: number,
+    pageSize?: number,
   ) => {
     return useQuery({
       queryFn: () =>
         getCities({
+          searchQuery,
           page: currentPage,
           perPage: pageSize,
-          searchQuery,
         }),
       queryKey: [
         "getCities",
         {
+          searchQuery,
           page: currentPage,
           perPage: pageSize,
-          searchQuery,
         },
       ],
     });

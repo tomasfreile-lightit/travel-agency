@@ -14,7 +14,7 @@ export const getCities = async ({
   page = 1,
   perPage = 10,
   searchQuery,
-}: PaginationParams & { searchQuery?: string }) => {
+}: Partial<PaginationParams> & { searchQuery?: string }) => {
   const params: Record<string, any> = {
     page,
     perPage,
