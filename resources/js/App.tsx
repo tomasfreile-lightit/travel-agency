@@ -6,6 +6,9 @@ import { createRoot } from "react-dom/client";
 
 import "./../css/app.css";
 
+import ReactDOM from "react-dom";
+
+import { Toasts } from "~/ui";
 import { Providers } from "./providers";
 import { Router } from "./router";
 
@@ -21,6 +24,7 @@ createRoot(root).render(
   <StrictMode>
     <Providers>
       <Router />
+      {ReactDOM.createPortal(<Toasts />, document.body)}
     </Providers>
   </StrictMode>,
 );

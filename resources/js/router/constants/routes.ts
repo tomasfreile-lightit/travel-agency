@@ -3,6 +3,9 @@ export const ROUTES = {
   login: "/login",
   example: "/example",
   users: "/users",
+  cities: "/cities",
+  airlines: "/airlines",
+  flights: "/flights",
 } as const;
 
 export const MODAL_ROUTES = {
